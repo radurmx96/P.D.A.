@@ -1,9 +1,13 @@
+package model;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Stack {
-	int maxSize;
-	private Queue<Integer> queue; 
+	
+	private int maxSize;
+	private int sizeCounter = 0;
+	private Queue<Integer> queue;
+	private Integer ongoingElement = 1; 
 	
 	public Stack(int maxSize) {
 		super();
@@ -16,17 +20,24 @@ public class Stack {
 	}
 
 	public void push() {
-		queue.add(1);
+		queue.add(ongoingElement);
+		sizeCounter ++;
 		notifyAll();
 	}
 
 	public void pop() {
 		notifyAll();
 		queue.remove();
-		
+		sizeCounter --;
 	}
 
 	public boolean isEmpty() {
 		return queue.isEmpty();
 	}
+
+	public void printEmptySlotsAndElement() {
+		System.out.print(maxSize - sizeCounter + " slots left --- " + ongoingElement);
+		
+	}
+	
 }
