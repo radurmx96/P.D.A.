@@ -1,3 +1,4 @@
+package model;
 
 public class Producer extends Thread {
 
@@ -23,7 +24,9 @@ public class Producer extends Thread {
 					e.printStackTrace();
 				}
 
-				System.out.println("Element added.");
+				System.out.print("Element added --- ");
+				stack.printEmptySlotsAndElement();
+				System.out.println(" added");
 				stack.push();
 			}
 			
