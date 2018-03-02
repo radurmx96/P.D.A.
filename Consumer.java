@@ -1,3 +1,4 @@
+package model;
 
 public class Consumer extends Thread {
 
@@ -23,7 +24,9 @@ public class Consumer extends Thread {
 					e.printStackTrace();
 				}
 
-				System.out.println("Element removed.");
+				System.out.print("Element removed --- ");
+				stack.printEmptySlotsAndElement();
+				System.out.println(" removed");
 				stack.pop();
 				
 			}
